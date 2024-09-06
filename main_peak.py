@@ -5,7 +5,7 @@ from sklearn.preprocessing import MinMaxScaler
 import neurokit2 as nk
 
 if __name__ == '__main__':
-    path = "ecg_00.csv"
+    path = "ecg_00.csv" # select csv file in RAW_DATA
     df = pd.read_csv(path)
 
     fs = 128  # sampling rate value   N:128hz / AF, ST, VF: 250hz
