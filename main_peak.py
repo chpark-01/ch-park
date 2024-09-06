@@ -31,17 +31,17 @@ if __name__ == '__main__':
         normalized_data = [x[0] for x in data]
         mean_data = np.mean(normalized_data)
 
-        shift_data1 = normalized_data + (shift - mean_data)  # shift baseline
-        _, rpeaks1 = nk.ecg_peaks(shift_data1, sampling_rate=fs)  # peak detection
+        shift_data = normalized_data + (shift - mean_data)  # shift baseline
+        _, rpeaks = nk.ecg_peaks(shift_data, sampling_rate=fs)  # peak detection
 
-        R_index1 = rpeaks1['ECG_R_Peaks']
+        R_index = rpeaks['ECG_R_Peaks']
 
         interval = []
-        for i in range(len(R_index1) - 1):
-            index = (R_index1[i + 1] - R_index1[i]) / fs
+        for i in range(len(R_index) - 1):
+            index = (R_index[i + 1] - R_index[i]) / fs
             interval.append(index)
 
-        sdnn1 = np.std(interval) * 1000
+        sdnn = np.std(interval) * 1000
 
-        print('%d st sdnn :  %f' % (it + 1, sdnn1))
-        ecg_data_full.append(sdnn1)
+        print('%d st sdnn :  %f' % (it + 1, sdnn))
+        ecg_data_full.append(sdnn)
