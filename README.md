@@ -6,4 +6,4 @@ This repository contains the codes and filtered data to generate the main result
 
 2. The code in main_peak.py file perform peak detection by loading RAW_DATA files to obtain the SDNN value.
 
-3. The code in main_calssifer.py file perform machine learning using VGG-16 to distinguish the N, AF, ST, and VF.
+3. The code in main_classifier.py file perform machine learning using VGG-16 to distinguish the N, AF, ST, and VF.
