@@ -20,7 +20,7 @@ from sklearn.metrics import confusion_matrix
 
 # Loading the training data
 PATH = os.getcwd()
-data_path = 'train_img'  # Modify data_path with your train image set path
+data_path = 'train_img'  # Modify data_path with your train_imageset path
 data_dir_list = os.listdir(data_path)
 
 img_data_list = []
@@ -68,7 +68,7 @@ x, y = shuffle(img_data, Y, random_state=3)
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=3)
 
-#########################################################################################
+####################################################################################################################
 image_input = Input(shape=(224, 224, 3))
 
 model = VGG16(input_tensor=image_input, include_top=True, weights='imagenet')
@@ -180,7 +180,7 @@ new_model.compile(optimizer=new_model.optimizer,
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
 
-test_dir = os.path.join('test_img')   # Modify data_path with your test image set path
+test_dir = os.path.join('test_img')   # Modify test_dir path with your test_imageset path
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 test_generator = test_datagen.flow_from_directory(test_dir, batch_size=1, target_size=(224, 224), color_mode='rgb',
                                                   shuffle=False)
@@ -198,7 +198,6 @@ labels = dict((v, k) for k, v in labels.items())
 print(labels)
 predictions = [labels[k] for k in predicted_class_indices]
 
-# filenames=test_generator.filenames[test_generator.index_array]
 filenames = test_generator.filenames
 results = pd.DataFrame({"Filename": filenames,
                         "Predictions": predictions})
