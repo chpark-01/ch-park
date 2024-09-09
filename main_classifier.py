@@ -176,7 +176,7 @@ def plot_confusion_matrix(cm,
 new_model = keras.models.load_model('b30e200.hdf5')
 new_model.summary()
 
-new_model.compile(optimizer=new_model.optimizer,  # 복원된 옵티마이저를 사용합니다.
+new_model.compile(optimizer=new_model.optimizer,  
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
 
