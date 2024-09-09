@@ -14,7 +14,7 @@ def signal_plot(data, fs, file_name):
     print("Img. Signal Saved")
 
 
-def Spectrogram_STFT1(x, fs, file_name, nperseg_num):
+def Spectrogram_STFT(x, fs, file_name, nperseg_num):
     time_value = round(fs * nperseg_num)  # nperseg 값 계산
     f, t, Sxx = signal.stft(x, fs, nperseg=time_value)
 
@@ -73,4 +73,4 @@ if __name__ == '__main__':
             print(file_name2)
             print(path.split('.'))
             print(str(h + 1) + ' stft iter:' + str(it))
-            Spectrogram_STFT1(data_crop, fs, file_name2, nperseg_num)
+            Spectrogram_STFT(data_crop, fs, file_name2, nperseg_num)
