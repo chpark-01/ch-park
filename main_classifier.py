@@ -20,7 +20,7 @@ from sklearn.metrics import confusion_matrix
 
 # Loading the training data
 PATH = os.getcwd()
-data_path = 'train_img'
+data_path = 'train_img'  # Modify data_path with your train image set path
 data_dir_list = os.listdir(data_path)
 
 img_data_list = []
@@ -50,10 +50,10 @@ num_of_samples = img_data.shape[0]
 labels = np.ones((num_of_samples,), dtype='int64')
 print(labels.shape)
 
-step = 1400
-step1 = 1600
-step2 = 1240
-step3 = 1600
+step = 1400  # number of AF training img
+step1 = 1600  # number of N training img
+step2 = 1240  # number of ST training img
+step3 = 1600  # number of VF training img
 labels[step * 0:step - 1] = 0
 labels[step:step + step1 - 1] = 1
 labels[step + step1:step + step1 + step2 - 1] = 2
@@ -180,7 +180,7 @@ new_model.compile(optimizer=new_model.optimizer,  # 복원된 옵티마이저를
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
 
-test_dir = os.path.join('test_img')
+test_dir = os.path.join('test_img')   # Modify data_path with your test image set path
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 test_generator = test_datagen.flow_from_directory(test_dir, batch_size=1, target_size=(224, 224), color_mode='rgb',
                                                   shuffle=False)
