@@ -29,7 +29,7 @@ def Spectrogram_STFT1(x, fs, file_name, nperseg_num):
 if __name__ == '__main__':
     path = " ecg_normal.csv"  # select csv file in RAW_DATA
     df = pd.read_csv(path)
-    fs = 128  # sampling rate value   N:128hz / AF, ST, VF: 250hz
+    fs = 128  # sampling rate value   N:128hz / AF, ST, VF: 250hz / clinical : 500hz
     shift = 0.3  # common shifted baseline
     second_num = 7  # time value for STFT, signal image
     nperseg_num = 0.1  # STFT time window value(nperseg)
