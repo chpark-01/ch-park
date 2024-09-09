@@ -8,7 +8,7 @@ if __name__ == '__main__':
     path = "ecg_00.csv" # select csv file in RAW_DATA
     df = pd.read_csv(path)
 
-    fs = 128  # sampling rate value   N:128hz / AF, ST, VF: 250hz
+    fs = 128  # sampling rate value   N:128hz / AF, ST, VF: 250hz / clinical : 500hz
     shift = 0.3  # common shifted baseline
 
     ecg_data_full = []
